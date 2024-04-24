@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Combined Dropdown with JavaScript</title>
+</head>
+<body>
+    <label for="combinedDropdown">Select a category or item:</label>
+    <select id="combinedDropdown">
+    </select>
+
+    <script>
+        // Data structure representing categories and their items
+        var data = [
+            { category: "Electronics", items: ["TV", "Mobiles"] },
+            { category: "Footwear", items: ["Nike Casulas", "Lee Boots"] }
+        ];
+
+        // Get the dropdown element to append options
+        var combinedDropdown = document.getElementById("combinedDropdown");
+
+        // Create a default option for the dropdown
+        var defaultOption = document.createElement("option");
+        defaultOption.text = "Select a category or item";
+        defaultOption.disabled = true;
+        defaultOption.selected = true;
+        combinedDropdown.appendChild(defaultOption);
+
+        // Loop through the data to populate the dropdown
+        data.forEach(function(entry) {
+            // Create an option for the category
+            var categoryOption = document.createElement("option");
+            categoryOption.textContent = entry.category;
+            categoryOption.disabled = true; // Disable category option
+            combinedDropdown.appendChild(categoryOption);
+
+            // Loop through the items within the category
+            entry.items.forEach(function(item) {
+                // Create an option for each item
+                var itemOption = document.createElement("option");
+                itemOption.textContent = item;
+
+                // Append the item option to the dropdown
+                combinedDropdown.appendChild(itemOption);
+            });
+        });
+    </script>
+</body>
+</html>

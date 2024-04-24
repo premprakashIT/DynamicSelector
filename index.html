@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Multi level iterator</title>
+        <script>
+            var data=[
+                {Catagory:"Electronics", Products: ["TV","Mobiles"]},
+                {Catagory:"Footwear",Products:["Nike Casulas","Lee Boots"]}
+            ];
+            function bodyload(){
+                for(var item of data)
+                {
+                    var outerli=document.createElement("li");
+                    outerli.innerHTML=item.Catagory;
+                    for(var product of item.Products)
+                    {
+                        var innerul=document.createElement("ul");
+                        var innerli=document.createElement("li");
+                        innerli.innerHTML=product;
+                        innerul.appendChild(innerli);
+                        outerli.appendChild(innerul);
+                        document.querySelector("ol").appendChild(outerli);
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body onload="bodyload()">
+        <ol>
+
+        </ol>
+        
+
+    </body>
+</html>
